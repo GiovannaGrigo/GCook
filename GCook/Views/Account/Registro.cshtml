@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Registro";
     ViewData["Subtitle"] = Model.Enviado ? "Conta Criada com Sucesso" : "Criar Conta";
-    Layout = "~/View/Shared/_LayoutAccount.cshtml";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
 
 @if (!Model.Enviado)
@@ -22,17 +22,17 @@
         <div class="row">
             <div class="col-sm-12 col-md-7">
                 <div class="form-floating mb-3">
-                    <input asp-for="DataNascimento">
+                    <input asp-for="DataNascimento" class="form-control">
                     <label asp-for="DataNascimento"></label>
                     <span asp-validation-for="DataNascimento" class="text-danger text-sm"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Senha">
+                    <input asp-for="Senha" class="form-control">
                     <label asp-for="Senha"></label>
                     <span asp-validation-for="Senha" class="text-danger text-sm"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="ConfirmacaoSenha">
+                    <input asp-for="ConfirmacaoSenha" class="form-control">
                     <label asp-for="ConfirmacaoSenha"></label>
                     <span asp-validation-for="ConfirmacaoSenha" class="text-danger text-sm"></span>
                 </div>
