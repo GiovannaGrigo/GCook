@@ -576,15 +576,15 @@ namespace GCook.Migrations
                         {
                             Id = "ddf093a6-6cb5-4ff7-9a64-83da34aee005",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9cbcbf24-2ca4-4dee-9a45-7de19b8bc644",
+                            ConcurrencyStamp = "487b3507-4fc1-4277-88ef-1fe8ae3cc48b",
                             Email = "admin@gcook.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GCOOK.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGvC1wlruS+tdkT//IBYVO1Q/4B9CNKuntA8Q5Q4Fn/j/qMBT4xXAaUgeQFGkT/MAw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMgYdRfDcsyWbsRC/vcEXdhBHCNhclkdKq9qn6qrFydB4rKK9rPMIz+t7+r7mr4opg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "69bade57-ebf3-4666-a366-406e85a3a4ba",
+                            SecurityStamp = "b71b84a7-4323-4543-998b-1f34bf03c0b8",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });

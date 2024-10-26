@@ -78,7 +78,7 @@ public class UsuarioService : IUsuarioService
             Email = userAccount.Email,
             UserName = userAccount.UserName,
             Perfil = perfis,
-            isAdmin = admin
+            IsAdmin = admin
         };
         return usuarioVM;
     }

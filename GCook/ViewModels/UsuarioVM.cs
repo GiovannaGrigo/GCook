@@ -9,5 +9,5 @@ public class UsuarioVM
     public DateTime DataNascimento { get; set; }
     public string Foto { get; set; }
     public string Perfil { get; set; }
-    public bool isAdmin { get; set; } = false;
+    public bool IsAdmin { get; set; } = false;
 }
