@@ -1,22 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GCook.Data;
 using GCook.Models;
 
 namespace GCook.Controllers
 {
+
+
+
     public class CategoriasController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IWebHostEnvironment _webHost;
 
-        public CategoriasController(AppDbContext context)
+        public CategoriasController(AppDbContext context, IWebHostEnvironment webHost)
         {
             _context = context;
+            _webHost = webHost;
         }
 
         // GET: Categorias
@@ -54,12 +54,24 @@ namespace GCook.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Foto,ExibirHome")] Categoria categoria)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Foto,ExibirHome")] Categoria categoria, IFormFile foto)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(categoria);
                 await _context.SaveChangesAsync();
+                if (foto != null)
+                {
+                    string nomeArquivo = categoria.Id + Path.GetExtension(foto.FileName);
+                    string caminho = Path.Combine(_webHost.WebRootPath, "img\\categorias");
+                    string novoArquivo = Path.Combine(caminho, nomeArquivo);
+                    using (var stream = new FileStream(novoArquivo, FileMode.Create))
+                    {
+                        foto.CopyTo(stream);
+                    }
+                    categoria.Foto = "\\img\\categorias\\" + nomeArquivo;
+                    await _context.SaveChangesAsync();
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View(categoria);
